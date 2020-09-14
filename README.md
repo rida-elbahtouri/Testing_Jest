@@ -48,9 +48,7 @@ the dependencies needed in this project are:
 **You can Install the dependencies with this commands**
 
 ```bash
-$ npm run build
-
-$ npm run start
+$ npm install
 ```
 
 ## Usage
