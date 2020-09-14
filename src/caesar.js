@@ -27,23 +27,38 @@ const Caesar = (str, shift) => {
     y: 25,
     z: 26,
   };
-  const getKeyByValue = (object, value) => Object.keys(object).find((key) => object[key] === value);
+  function getKeyByValue(object, value) {
+    return Object.keys(object).find((key) => object[key] === value);
+  }
   const newstr = str.split('');
   const caesar = [];
+  const pushtoarray = (arr, index) => {
+    arr.push(getKeyByValue(caesarObj, index));
+  };
+  const pushUpercase = (arr, index) => {
+    arr.push(getKeyByValue(caesarObj, index).toUpperCase());
+  };
+
+  const checkpush = (letter, index) => {
+    if (letter === letter.toUpperCase()) {
+      pushUpercase(caesar, index);
+    } else {
+      pushtoarray(caesar, index);
+    }
+  };
   newstr.forEach((letter) => {
-    if (letter !== ' ') {
-      const index = caesarObj[letter] + shift;
+    if (letter.toLowerCase() in caesarObj) {
+      const index = caesarObj[letter.toLowerCase()] + shift;
       if (index < 26) {
-        caesar.push(getKeyByValue(caesarObj, index));
+        checkpush(letter, index);
       } else {
-        caesar.push(getKeyByValue(caesarObj, index - 26));
+        checkpush(letter, index - 26);
       }
     } else {
-      caesar.push(' ');
+      caesar.push(letter);
     }
   });
 
   return caesar.join('');
 };
-
 export default Caesar;
