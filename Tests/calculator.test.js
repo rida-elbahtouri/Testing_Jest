@@ -1,18 +1,17 @@
 import Calculator from '../src/calculator';
 
-const calculator = new Calculator(10, 2);
 test('it add two numbers', () => {
-  expect(calculator.add()).toEqual(12);
+  expect(Calculator.add(10, 2)).toEqual(12);
 });
 
 test('it subtract two numbers', () => {
-  expect(calculator.subtract()).toEqual(8);
+  expect(Calculator.subtract(10, 2)).toEqual(8);
 });
 
 test('it divide two numbers', () => {
-  expect(calculator.divide()).toEqual(5);
+  expect(Calculator.divide(10, 2)).toEqual(5);
 });
 
 test('it multiply two numbers', () => {
-  expect(calculator.multiply()).toEqual(20);
+  expect(Calculator.multiply(10, 2)).toEqual(20);
 });
