@@ -1,5 +1,5 @@
 const Caesar = (str, shift) => {
-  const caesar_obj = {
+  const caesarObj = {
     a: 1,
     b: 2,
     c: 3,
@@ -27,18 +27,16 @@ const Caesar = (str, shift) => {
     y: 25,
     z: 26,
   };
-  const getKeyByValue = (object, value) => {
-    return Object.keys(object).find((key) => object[key] === value);
-  };
-  let newstr = str.split('');
-  let caesar = [];
+  const getKeyByValue = (object, value) => Object.keys(object).find((key) => object[key] === value);
+  const newstr = str.split('');
+  const caesar = [];
   newstr.forEach((letter) => {
-    if (letter != ' ') {
-      let index = caesar_obj[letter] + shift;
+    if (letter !== ' ') {
+      const index = caesarObj[letter] + shift;
       if (index < 26) {
-        caesar.push(getKeyByValue(caesar_obj, index));
+        caesar.push(getKeyByValue(caesarObj, index));
       } else {
-        caesar.push(getKeyByValue(caesar_obj, index - 26));
+        caesar.push(getKeyByValue(caesarObj, index - 26));
       }
     } else {
       caesar.push(' ');
@@ -47,6 +45,5 @@ const Caesar = (str, shift) => {
 
   return caesar.join('');
 };
-console.log(Caesar('attack at dawn z', 5));
 
 export default Caesar;
